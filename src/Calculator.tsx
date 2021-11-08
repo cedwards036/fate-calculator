@@ -1,7 +1,12 @@
 import React from 'react';
 import './App.css';
+import { OddsToProbabilityMap } from './fate-calculator-core';
 
-function Calculator() {
+type CalculatorProps = {
+    chaosProbabilities: OddsToProbabilityMap[]
+}
+
+function Calculator({ chaosProbabilities }: CalculatorProps) {
     return (
         <div className="calculator-wrapper">
             <div className="calculator">
