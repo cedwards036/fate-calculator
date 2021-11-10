@@ -12,9 +12,9 @@ function Calculator({ chaosProbabilities }: CalculatorProps) {
 
     return (
         <div className="calculator-wrapper">
-            <div className="calculator">
+            <div className="calculator column">
                 <h1>Fate Calculator</h1>
-                <ChaosCounter chaos={chaos} setChaos={setChaos} />
+                <ChaosCounter chaos={chaos} maxChaos={chaosProbabilities.length} setChaos={setChaos} />
             </div>
         </div>
     );
