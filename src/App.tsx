@@ -1,11 +1,12 @@
 import React from 'react';
 import Calculator from './Calculator';
-import { chaosProbabilities } from './probability-data';
+import rawProbabilityData from './probability-data.json';
+import { parseProbabilityJson } from './fate-calculator-core';
 
 function App() {
   return (
     <div className="App">
-      <Calculator chaosProbabilities={chaosProbabilities} />
+      <Calculator chaosProbabilities={parseProbabilityJson(rawProbabilityData)} />
     </div>
   );
 }
