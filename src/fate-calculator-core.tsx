@@ -29,6 +29,8 @@ interface OddsToProbabilityMap {
     hasToBe: Probability,
 }
 
+type Odds = keyof OddsToProbabilityMap;
+
 function parseProbabilityJson(json: Record<string, number>[]): OddsToProbabilityMap[] {
     return json.map(obj => {
         return {
@@ -53,5 +55,6 @@ export {
 }
 
 export type {
-    OddsToProbabilityMap
+    OddsToProbabilityMap,
+    Odds
 }

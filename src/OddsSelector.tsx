@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
+import { Odds } from './fate-calculator-core';
 
 type OddsSelectorProps = {
-    odds: string,
-    setOdds: (value: string) => void
+    odds: Odds,
+    setOdds: (value: Odds) => void
 }
 
 function OddsSelector({ odds, setOdds }: OddsSelectorProps) {
     return (
         <div className="column">
-            <select id="odds-selector" value={odds} onChange={e => setOdds(e.target.value)}>
+            <select id="odds-selector" value={odds} onChange={e => setOdds(e.target.value as Odds)}>
                 <option value="impossible">Impossible</option>
                 <option value="noWay">No Way</option>
                 <option value="veryUnlikely">Very Unlikely</option>

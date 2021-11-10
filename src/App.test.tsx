@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Calculator from './Calculator';
 import { OddsToProbabilityMap, Probability } from './fate-calculator-core';
 
@@ -41,7 +42,7 @@ const testChaosProbabilities: OddsToProbabilityMap[] = [
     veryLikely: new Probability(65),
     nearSureThing: new Probability(75),
     aSureThing: new Probability(80),
-    hasToBe: new Probability(90),
+    hasToBe: new Probability(150),
   }
 ]
 
@@ -60,6 +61,18 @@ class Elements {
 
   static get oddsSelector(): HTMLElement {
     return screen.getByLabelText('Odds');
+  }
+
+  static get exceptionalYesStat(): HTMLElement {
+    return screen.getByTestId('exceptionalYes');
+  }
+
+  static get yesStat(): HTMLElement {
+    return screen.getByTestId('yes');
+  }
+
+  static get exceptionalNoStat(): HTMLElement {
+    return screen.getByTestId('exceptionalNo');
   }
 }
 
@@ -97,7 +110,29 @@ test('Decrement chaos button is disabled if chaos number is 1', () => {
   expect(Elements.decrChaosNumber).toBeDisabled();
 });
 
-
 test('Odds selector initializes to "impossible"', () => {
   expect(Elements.oddsSelector).toHaveValue('impossible');
+});
+
+test('Stats initialize to chaos level 0 with "impossible" odds', () => {
+  expect(Elements.exceptionalYesStat).toHaveTextContent('N/A');
+  expect(Elements.yesStat).toHaveTextContent('-20');
+  expect(Elements.exceptionalNoStat).toHaveTextContent('77');
+});
+
+test('Selecting a specific chaos level and odds value updates the stats based on the input data', () => {
+  Elements.incrChaosNumber.click();
+  userEvent.selectOptions(Elements.oddsSelector, "somewhatLikely")
+  expect(Elements.exceptionalYesStat).toHaveTextContent('5');
+  expect(Elements.yesStat).toHaveTextContent('25');
+  expect(Elements.exceptionalNoStat).toHaveTextContent('86');
+});
+
+test('Exceptional stats are set to N/A if output is impossible', () => {
+  Elements.incrChaosNumber.click();
+  Elements.incrChaosNumber.click();
+  userEvent.selectOptions(Elements.oddsSelector, "hasToBe")
+  expect(Elements.exceptionalYesStat).toHaveTextContent('30');
+  expect(Elements.yesStat).toHaveTextContent('150');
+  expect(Elements.exceptionalNoStat).toHaveTextContent('N/A');
 });
