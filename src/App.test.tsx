@@ -57,6 +57,10 @@ class Elements {
   static get decrChaosNumber(): HTMLElement {
     return screen.getByRole('button', { name: 'Decrement Chaos level' });
   }
+
+  static get oddsSelector(): HTMLElement {
+    return screen.getByLabelText('Odds');
+  }
 }
 
 beforeEach(() => {
@@ -91,4 +95,9 @@ test('Decrement chaos button is disabled if chaos number is 1', () => {
   Elements.incrChaosNumber.click();
   Elements.decrChaosNumber.click();
   expect(Elements.decrChaosNumber).toBeDisabled();
+});
+
+
+test('Odds selector initializes to "impossible"', () => {
+  expect(Elements.oddsSelector).toHaveValue('impossible');
 });
