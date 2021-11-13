@@ -5,7 +5,7 @@
   --disabled-text-color: rgba(255,255,255,0.38);
   --chaos-box-dimension: 50px;
   --main-font-size: 22px;
-  --small-font-size: 15px;
+  --small-font-size: 18px;
   --large-font-size: 40px;
 }
 
@@ -56,11 +56,30 @@ body {
   text-align: center;
 }
 
+button {
+  border: none;
+  text-decoration: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
 .chaos-arrow {
   color: var(--main-text-color);
   font-size: var(--large-font-size);
   background-color: transparent;
-  border: 0px;
+  border: none;
 }
 
 .chaos-arrow:disabled {
