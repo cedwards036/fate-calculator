@@ -62,13 +62,9 @@ button {
   font-family: sans-serif;
   cursor: pointer;
   text-align: center;
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-}
-
-button:focus {
-  outline: 1px solid #fff;
-  outline-offset: -4px;
 }
 
 button:active {
@@ -80,18 +76,30 @@ button:active {
   font-size: var(--large-font-size);
   background-color: transparent;
   border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .chaos-arrow:disabled {
- color: var(--disabled-text-color)
+ color: var(--disabled-text-color);
+ appearance: none;
+ -webkit-appearance: none;
+ -moz-appearance: none;
 }
 
 .chaos-arrow:hover {
   color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .chaos-arrow:disabled:hover {
-  color: var(--disabled-text-color)
+  color: var(--disabled-text-color);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
  }
 
 .probability-stats {
