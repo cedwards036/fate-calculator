@@ -2,11 +2,16 @@
   --background-color: #121212;
   --surface-color: rgba(255,255,255,0.08);
   --main-text-color: rgba(255,255,255,0.87);
+  --disabled-text-color: rgba(255,255,255,0.38);
   --chaos-box-dimension: 50px;
+  --main-font-size: 22px;
+  --small-font-size: 15px;
+  --large-font-size: 40px;
 }
 
 body {
   background-color: var(--background-color);
+  font-size: var(--main-font-size);
 }
 
 .row {
@@ -34,6 +39,7 @@ body {
   margin-top: 30px;
   text-align: center;
   justify-content: space-around;
+  padding: 0px 50px 50px 50px;
 }
 
 .chaos-counter {
@@ -41,7 +47,7 @@ body {
 }
 
 .chaos-number {
-  font-size: 2em;
+  font-size: var(--large-font-size);
   border: 1px solid var(--main-text-color);
   border-radius: 3px;
   width: var(--chaos-box-dimension);
@@ -50,12 +56,57 @@ body {
   text-align: center;
 }
 
+.chaos-arrow {
+  color: var(--main-text-color);
+  font-size: var(--large-font-size);
+  background-color: transparent;
+  border: 0px;
+}
+
+.chaos-arrow:disabled {
+ color: var(--disabled-text-color)
+}
+
+.chaos-arrow:hover {
+  color: white;
+}
+
+.chaos-arrow:disabled:hover {
+  color: var(--disabled-text-color)
+ }
+
 .probability-stats {
   text-align: center;
   justify-content: space-around;
   align-items: flex-end;
 }
 
+.exceptional-stat {
+  font-size: var(--main-font-size);
+}
+
+.stat-label {
+  font-size: var(--small-font-size);
+}
+
 .yes-stat {
-  font-size: 2em;
+  font-size: var(--large-font-size);
+}
+
+.odds-selector-wrapper {
+  align-items: center;
+}
+
+#odds-selector {
+  width: 65%;
+  font-size: var(--main-font-size);
+  background-color: var(--background-color);
+  color: var(--main-text-color);
+  margin: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .calculator {
+    padding:  0px 15px 30px 15px;
+  }
 }

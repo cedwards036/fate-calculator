@@ -13,16 +13,16 @@ function ProbabilityStats({ chaosProbabilities, odds, chaos }: ProbabilityStatsP
     return (
         <div className="probability-stats row">
             <div className="column">
-                <div data-testid="exceptionalYes">{probability.yes > 0 ? probability.exceptionalYes : "N/A"}</div>
-                <div>Exceptional Yes</div>
+                <div data-testid="exceptionalYes" className="exceptional-stat">{probability.yes > 0 ? probability.exceptionalYes : "N/A"}</div>
+                <div className="stat-label">Exceptional Yes</div>
             </div>
             <div className="column">
                 <div className="yes-stat" data-testid="yes">{probability.yes}</div>
-                <div>Yes</div>
+                <div className="stat-label">Yes</div>
             </div>
             <div className="column">
-                <div data-testid="exceptionalNo">{probability.yes < 100 ? probability.exceptionalNo : "N/A"}</div>
-                <div>Exceptional No</div>
+                <div data-testid="exceptionalNo" className="exceptional-stat">{probability.yes < 100 ? probability.exceptionalNo : "N/A"}</div>
+                <div className="stat-label">Exceptional No</div>
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ type OddsSelectorProps = {
 
 function OddsSelector({ odds, setOdds }: OddsSelectorProps) {
     return (
-        <div className="column">
+        <div className="column odds-selector-wrapper">
             <select id="odds-selector" value={odds} onChange={e => setOdds(e.target.value as Odds)}>
                 <option value="impossible">Impossible</option>
                 <option value="noWay">No Way</option>
